@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.GlobalHeader > h1 {
+  background-color: orange;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px;
+  color: white;
+}
+
+.SearchForm {
+  padding: 10px;
+}
+
+.SearchForm input[type="search"] {
+  width: calc(100% - 50px);
+  box-sizing: border-box;
+  height: 40px;
+  vertical-align: bottom;
+  border: 1px solid #DDDBD6;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.SearchForm button {
+  appearance: none;
+  height: 40px;
+  width: 50px;
+  box-sizing: border-box;
+  padding: 5px;
+  background-color: #DDDBD6;
+  border-radius: 0 4px 4px 0;
+  border: none;
+  vertical-align: bottom;
+}
+
+/* recipe page */
+
+.RecipePage .title {
+  color: yellowgreen;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px;
+  margin: 0;
+}
+
+.RecipePage .subTitle {
+  border-bottom: 1px solid beige;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px;
+}
+
+.RecipePage .recipeMeta {
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.RecipePage .authorName {
+  position: absolute;
+}
+
+.RecipePage .publishedAt {
+  text-align: right;
+}
+
+.RecipePage .recipeImage {
+  width: 100%;
+}
+
+/* search page */
+
+.SearchPage .searchTitle {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.SearchPage .recipeList {
+  margin: 0;
+  padding: 0;
+}
+
+.SearchPage .recipeList > li {
+  margin: 0;
+  padding: 0;
+}
+
+.SearchPage .recipeList > li > a {
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  list-style: none;
+  border-bottom: 1px solid beige;
+  color: initial;
+  text-decoration: initial;
+}
+
+.SearchPage .recipeList .image {
+  width: 35%;
+}
+
+.SearchPage .recipeList .image img {
+  width: 100%;
+}
+
+.SearchPage .recipeList .text {
+  width: 65%;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.SearchPage .recipeList .text h2 {
+  font-size: 16px;
+  color: yellowgreen;
+  margin: 0;
+}
+
+.SearchPage .recipeList .text p {
+  font-size: 13px;
+}
+
+.SearchPage .paginator {
+  padding: 10px;
+  height: 30px;
+  position: relative;
+}
+
+.SearchPage .paginator > .prevLink {
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+
+.SearchPage .paginator > .nextLink {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
