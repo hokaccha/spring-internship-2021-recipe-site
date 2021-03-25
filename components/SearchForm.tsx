@@ -20,7 +20,12 @@ export const SearchForm: FC<Props> = (props) => {
 
   return (
     <form className="SearchForm" onSubmit={handleSubmit}>
-      <input type="search" value={keyword} onChange={handleInput} />
+      <input
+        type="search"
+        placeholder="料理目、食材名、目的"
+        value={keyword}
+        onChange={handleInput}
+      />
       <button type="submit">🔎</button>
     </form>
   );
