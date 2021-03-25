@@ -1,4 +1,9 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type {
+  GetServerSideProps,
+  GetStaticPaths,
+  GetStaticProps,
+  NextPage,
+} from "next";
 import type { Recipe } from "../../lib/recipe";
 import { getRecipe } from "../../lib/recipe";
 import { GlobalHeader } from "../../components/GlobalHeader";
@@ -59,7 +64,14 @@ const RecipePage: NextPage<Props> = (props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const id = Number(context.params?.id);
   if (id === 0 || isNaN(id)) {
     return {
@@ -71,6 +83,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       props: {
         recipe: recipe,
       },
+      revalidate: 1,
     };
   }
 };
