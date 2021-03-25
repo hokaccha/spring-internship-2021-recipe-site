@@ -1,9 +1,5 @@
-import type {
-  GetServerSideProps,
-  GetStaticPaths,
-  GetStaticProps,
-  NextPage,
-} from "next";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 import type { Recipe } from "../../lib/recipe";
 import { getRecipe } from "../../lib/recipe";
 import { GlobalHeader } from "../../components/GlobalHeader";
@@ -24,9 +20,11 @@ const RecipePage: NextPage<Props> = (props) => {
       {recipe && (
         <main>
           {recipe.image_url && (
-            <img
+            <Image
               src={recipe.image_url}
               alt="レシピ画像"
+              width="480"
+              height="270"
               className="recipeImage"
             />
           )}
