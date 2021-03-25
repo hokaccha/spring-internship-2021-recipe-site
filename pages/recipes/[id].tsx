@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import type { Recipe } from "../../lib/recipe";
 import { getRecipe } from "../../lib/recipe";
 import { GlobalHeader } from "../../components/GlobalHeader";
@@ -8,6 +9,11 @@ import { SearchForm } from "../../components/SearchForm";
 type Props = {
   recipe: Recipe;
 };
+
+const RecipeMain = dynamic(
+  async () => (await import("../../components/RecipeMain")).RecipeMain,
+  { ssr: false }
+);
 
 const RecipePage: NextPage<Props> = (props) => {
   const { recipe } = props;
@@ -29,33 +35,7 @@ const RecipePage: NextPage<Props> = (props) => {
             />
           )}
 
-          <h2 className="title">{recipe.title}</h2>
-
-          <div className="recipeMeta">
-            <div className="authorName">💁‍♀️ {recipe.author.user_name}</div>
-            <div className="publishedAt">
-              🕒 {recipe.published_at.split("T")[0]}
-            </div>
-            <p>{recipe.description}</p>
-          </div>
-
-          <h3 className="subTitle">🥕 材料</h3>
-          <ul>
-            {recipe.ingredients.map((ing, i) => (
-              <li key={i}>
-                {ing.name} : {ing.quantity}
-              </li>
-            ))}
-          </ul>
-
-          <h3 className="subTitle">🍳 手順</h3>
-          <ol>
-            {recipe.steps
-              .filter((step) => step !== "")
-              .map((step, i) => (
-                <li key={i}>{step}</li>
-              ))}
-          </ol>
+          <RecipeMain recipe={recipe} />
         </main>
       )}
     </div>
