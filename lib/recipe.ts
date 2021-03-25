@@ -43,7 +43,7 @@ export async function searchRecipe(
   const response = await fetch(
     `https://internship-recipe-api.ckpd.co/search?keyword=${keyword}&page=${page}`,
     {
-      headers: { "X-Api-Key": process.env.API_KEY || "" },
+      headers: { "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "" },
     }
   );
   const result = await response.json();
