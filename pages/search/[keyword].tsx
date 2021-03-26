@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GlobalHeader } from "../../components/GlobalHeader";
 import { SearchForm } from "../../components/SearchForm";
+import { RecipeList } from "../../components/RecipeList";
 import { Recipe, searchRecipe } from "../../lib/recipe";
 
 type Props = {};
@@ -31,23 +32,7 @@ const SearchPage: NextPage<Props> = () => {
       <SearchForm keyword={keyword} />
       <main>
         {keyword && <h1 className="searchTitle">大根の検索結果</h1>}
-        <ul className="recipeList">
-          {recipes.map((recipe) => (
-            <li key={recipe.id}>
-              <Link href={`/recipes/${recipe.id}`}>
-                <a>
-                  <div className="image">
-                    {recipe.image_url && <img src={recipe.image_url} alt="" />}
-                  </div>
-                  <div className="text">
-                    <h2>{recipe.title}</h2>
-                    <p>{recipe.description}</p>
-                  </div>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <RecipeList recipes={recipes} />
         {(nextPage || prevPage) && (
           <div className="paginator">
             {prevPage && (

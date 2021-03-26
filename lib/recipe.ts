@@ -25,6 +25,12 @@ export async function getRecipe(id: number): Promise<Recipe | null> {
   return recipe as Recipe;
 }
 
+const searchDefaultValue = {
+  recipes: [],
+  nextPage: null,
+  prevPage: null,
+};
+
 export async function searchRecipe(
   keyword: string,
   page: number
@@ -33,19 +39,18 @@ export async function searchRecipe(
   nextPage: string | null;
   prevPage: string | null;
 }> {
-  if (!keyword) {
-    return {
-      recipes: [],
-      nextPage: null,
-      prevPage: null,
-    };
-  }
+  if (!keyword) return searchDefaultValue;
+
   const response = await fetch(
     `https://internship-recipe-api.ckpd.co/search?keyword=${keyword}&page=${page}`,
     {
       headers: { "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "" },
     }
-  );
+  ).catch((err) => {
+    console.error(err);
+  });
+  if (!response || !response.ok) return searchDefaultValue;
+
   const result = await response.json();
   return {
     recipes: result.recipes as Recipe[],

@@ -42,6 +42,52 @@ body {
   vertical-align: bottom;
 }
 
+/* RecipeList */
+
+.RecipeList {
+  margin: 0;
+  padding: 0;
+}
+
+.RecipeList > li {
+  margin: 0;
+  padding: 0;
+}
+
+.RecipeList > li > a {
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  list-style: none;
+  border-bottom: 1px solid beige;
+  color: initial;
+  text-decoration: initial;
+}
+
+.RecipeList .image {
+  width: 35%;
+}
+
+.RecipeList .image img {
+  width: 100%;
+}
+
+.RecipeList .text {
+  width: 65%;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.RecipeList .text h2 {
+  font-size: 16px;
+  color: yellowgreen;
+  margin: 0;
+}
+
+.RecipeList .text p {
+  font-size: 13px;
+}
+
 /* recipe page */
 
 .RecipePage .title {
@@ -82,50 +128,6 @@ body {
 .SearchPage .searchTitle {
   margin: 10px;
   font-size: 18px;
-}
-
-.SearchPage .recipeList {
-  margin: 0;
-  padding: 0;
-}
-
-.SearchPage .recipeList > li {
-  margin: 0;
-  padding: 0;
-}
-
-.SearchPage .recipeList > li > a {
-  display: flex;
-  margin: 10px 0;
-  padding: 10px;
-  list-style: none;
-  border-bottom: 1px solid beige;
-  color: initial;
-  text-decoration: initial;
-}
-
-.SearchPage .recipeList .image {
-  width: 35%;
-}
-
-.SearchPage .recipeList .image img {
-  width: 100%;
-}
-
-.SearchPage .recipeList .text {
-  width: 65%;
-  padding-left: 10px;
-  box-sizing: border-box;
-}
-
-.SearchPage .recipeList .text h2 {
-  font-size: 16px;
-  color: yellowgreen;
-  margin: 0;
-}
-
-.SearchPage .recipeList .text p {
-  font-size: 13px;
 }
 
 .SearchPage .paginator {
