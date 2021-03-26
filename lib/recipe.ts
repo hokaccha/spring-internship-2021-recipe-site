@@ -18,7 +18,7 @@ export async function getRecipe(id: number): Promise<Recipe | null> {
   const response = await fetch(
     `https://internship-recipe-api.ckpd.co/recipes/${id}`,
     {
-      headers: { "X-Api-Key": process.env.API_KEY || "" },
+      headers: { "X-Api-Key": process.env.NEXT_PUBLIC_API_KEY || "" },
     }
   );
   const recipe = await response.json();
